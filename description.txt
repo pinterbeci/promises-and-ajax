@@ -1,0 +1,20 @@
+Aszinkron programozás
+
+	- szinkron programozás: ameddig egy utasítás le nem fut, addig más utasítás nem tud lefutni. Ha egy művelet
+	  időigényes, akkor az őt követő utasításnak ki kell várnia a 'sorát', és addig megakadhat az egész nagy program.
+	  
+	- aszinkron programozás: ameddig az az aszinkron utasítás le nem fut, addig más utasítások tudjanak futni.
+
+	  tehát abban az esetben, ha egy programrész több időt vesz igénybe, akkor a háttérszálra kerül, és fut a háttérben.
+	  Addig a többi utasítás sorban el tudja végezni a dolgát, és vegreahajtani, amit szeretne.
+
+	  (Ha például, az utasítások között van egy olyan, mely adatokat tölt le és időt vesz igénybe, akkor őt
+	  a háttérbe, háttérszálba kell küldeni, és folytatódhat a többi utasítás. Mikor a háttrében lévő program, utasítás
+	  elérte célját, akkor azt számunkra kell jelezni, hogy készen állnak az adatok a betöltésre.
+	  Tehát a főszáll megáll, és JS esetében pld. az oldal nem jeleník meg, hanem addig vár míg be nem fejeződik a letöltés,
+	  és csak utána halad tovább. Az aszinkron programozás erre nyújt megoldást, ha eljut erre a pontra a függvény, akkor
+	  ez az időigényes kód, művelet vagy program a háttérbe kerül majd. Fő szálon továbbiakban tudja megjeleníti az oldalunkat stb.
+	  A user ebből semmit nem vesz észre. Ha az időigényes utasítások elkészültek, akkor a háttér szál szól a fő szálnak,
+	  hogy kész, és	fel lehet az adatokat használni. 
+
+Promise osztály/objektum használata
